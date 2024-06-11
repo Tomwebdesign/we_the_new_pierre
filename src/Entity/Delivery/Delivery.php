@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Entity\Delevery;
+namespace App\Entity\Delivery;
 
-use App\Repository\Delevery\DeliveryRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Traits\EnableTrait;
+use App\Repository\Delivery\DeliveryRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DeliveryRepository::class)]
 class Delivery
 {
+    use EnableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -28,9 +31,6 @@ class Delivery
     #[Assert\PositiveOrZero()]
     #[Assert\NotBlank()]
     private ?float $price = null;
-
-    #[ORM\Column]
-    private ?bool $enable = null;
 
     public function getId(): ?int
     {
@@ -69,18 +69,6 @@ class Delivery
     public function setPrice(float $price): static
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function isEnable(): ?bool
-    {
-        return $this->enable;
-    }
-
-    public function setEnable(bool $enable): static
-    {
-        $this->enable = $enable;
 
         return $this;
     }

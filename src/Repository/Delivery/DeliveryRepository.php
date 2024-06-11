@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Delevery;
+namespace App\Repository\Delivery;
 
-use App\Entity\Delevery\Delivery;
+use App\Entity\Delivery\Delivery;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
