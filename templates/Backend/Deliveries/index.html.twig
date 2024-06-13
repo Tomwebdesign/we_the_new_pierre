@@ -14,7 +14,7 @@
 					<div class="card">
 						<p class="fw-bold">{{ delivery.name }}</p>
 						<p>{{ delivery.description }}</p>
-						<p class="fw-bold">{{ delivery.price }}</p>
+						<p class="fw-bold">{{ delivery.price|format_currency('EUR') }}</p>
 						<em>
 							{{ delivery.enable ? 'Actif' : 'Inactif' }}
 						</em>

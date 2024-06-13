@@ -3,7 +3,9 @@
 @import 'abstracts/mixins';
 @import 'abstracts/functions';
 
+// Import Components
 @import "components/breadcrumb";
 @import "components/cartTotals";
 @import "components/cartForm";
+@import "components/shippingForm";
 
