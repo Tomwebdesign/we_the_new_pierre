@@ -1,0 +1,30 @@
+{% extends 'Backend/base.html.twig' %}
+
+{% block title %}Administration des méthodes de livraison
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center">Admin des méthodes de livraison</h1>
+		<a href="{{ path('admin.deliveries.create') }}" class="btn btn-primary">Créer une méthode de livraison</a>
+		<div class="row gy-3 mt-2">
+			{% for delivery in deliveries %}
+				<div class="col-md-4">
+					<div class="card">
+						<p class="fw-bold">{{ delivery.name }}</p>
+						<p>{{ delivery.description }}</p>
+						<p class="fw-bold">{{ delivery.price|format_currency('EUR') }}</p>
+						<em>
+							{{ delivery.enable ? 'Actif' : 'Inactif' }}
+						</em>
+						<div class="card-btn">
+							<a href="{{ path('admin.deliveries.edit', {id: delivery.id}) }}" class="btn btn-warning">Modifier</a>
+							<twig:DeleteForm action="{{ path('admin.deliveries.delete', { id: delivery.id }) }}" message="Voulez-vous vraiment supprimer cette méthode de livraison ?" csrftoken="{{ csrf_token('delete' ~ delivery.id) }}"/>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

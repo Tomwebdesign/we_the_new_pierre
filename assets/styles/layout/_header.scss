@@ -19,6 +19,25 @@
         &.navbar-icons {
             flex: 0.5;
         }
+
+        .cart {
+            position: relative;
+            cursor: pointer;
+
+            &-count {
+                position: absolute;
+                background: rgb(70, 242, 57);
+                border-radius: 50%;
+                z-index: 2;
+                bottom: -0.5em;
+                right: -0.5em;
+                width: 1rem;
+                height: 1em;
+                text-align: center;
+                font-size: 1em;
+                line-height: 1em;
+            }
+        }
     }
 
     &-form {
